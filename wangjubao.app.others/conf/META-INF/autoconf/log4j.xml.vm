@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "http://toolkit.alibaba-inc.com/dtd/log4j/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- ===================================================================== -->
+    <!-- 以下是appender的定义 -->
+    <!-- ===================================================================== -->
+
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="encoding" value="UTF-8" />
+        <param name="Threshold" value="WARN" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%p[%t]-%C{6}.%M(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+	
+    <appender name="FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/stdout.log"/>
+        <!-- <param name="Threshold" value="ERROR" /> -->
+        <param name="Threshold" value="INFO" />
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+    <appender name="HISTORY" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/histroyimport.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+    <appender name="WL" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/anomalyLogistics.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender> 
+    
+    <appender name="RemindMessage" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/remindMessage.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender> 
+	
+    <appender name="BUYER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/buyer-info.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+     <appender name="DATA-CLEAN" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/data-clean.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+	 <appender name="CONSUME" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/consume.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+	
+	 <appender name="DAYREPORT" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/dayreport.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+        
+   <appender name="traderates" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/traderates.log"/>
+        <!-- <param name="Threshold" value="ERROR" /> -->
+        <param name="Threshold" value="INFO" />
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+	 <appender name="CouponReportConsumeTask" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/couponconsumetask.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+	
+	 <appender name="CouponReportCreateTask" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/couponcreatetask.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+     <appender name="ItemCatSyn" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/itemCatSyn.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+    <appender name="AuthCheck" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/authcheck.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+	
+	<appender name="Sellercats" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/sellercats.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+    <appender name="Promotionsync" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/promotionsync.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+      <appender name="Downcenter" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/downcenter.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+    
+    <appender name="UmpTag" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${wangjubao_dolphin_output}/wangjubao.app.others/umptag.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%p[%t]-%C{1}(%L)(%r) | %m%n   【 %d{MM-dd HH:mm:ss:sss\} 】" />
+        </layout>
+    </appender>
+	
+    <logger name="com.wangjubao.app.others" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="FILE" />
+    </logger>
+    
+    <logger name="histroyimport" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="HISTORY" />
+	</logger>
+	
+	<logger name="AnomalyLogistics" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="WL" />
+	</logger>
+		
+	<logger name="buyer-info" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="BUYER" />
+	</logger>
+	
+	<logger name="data-clean" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="DATA-CLEAN" />
+	</logger>
+	
+	<logger name="remindMessage" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="RemindMessage" />
+	</logger>
+	
+	<logger name="consume" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="CONSUME" />
+	</logger>
+
+	 <logger name="dayreport" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="DAYREPORT" />
+    </logger>
+	 
+	 <logger name="traderates" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="traderates" />
+    </logger>
+	<logger name="couponconsumetask" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="CouponReportConsumeTask" />
+    </logger>
+	
+	<logger name="couponcreatetask" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="CouponReportCreateTask" />
+    </logger>
+    
+    <logger name="itemCatSyn" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="ItemCatSyn" />
+    </logger>
+    
+    <logger name="authcheck" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="AuthCheck" />
+    </logger>
+	
+	<logger name="sellercats" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="Sellercats" />
+    </logger>
+    
+    <logger name="promotionsync" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="Promotionsync" />
+    </logger>
+    
+    <logger name="downcenter" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="Downcenter" />
+    </logger>
+    
+    <logger name="umptag" additivity="false">
+        <level value="INFO" />
+        <appender-ref ref="UmpTag" />
+    </logger>
+	
+    <!-- ===================================================================== -->
+    <!-- Root logger的定义 -->
+    <!-- ===================================================================== -->
+    <root>
+        <level value="DEBUG" />
+        <appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+    </root>
+    
+</log4j:configuration>

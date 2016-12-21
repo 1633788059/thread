@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<group name="env" description="enviroment setting">
+		<property name="wangjubao.dolphin.javahome" defaultValue="/usr/alibaba/java"
+			description="java home location" />
+		<property name="wangjubao.dolphin.production" defaultValue="run"
+			description="production mode(dev/run/test)" />
+		<property name="wangjubao.dolphin.output" defaultValue="${user.home}/output"
+			description="log output location" />
+	</group>
+
+	<script>
+	<generate template="ExportReport.csv" destfile="conf/ExportReport.csv" charset="utf-8" />
+	<generate template="ExportCuostmer.csv" destfile="conf/ExportCuostmer.csv" charset="utf-8" />
+	<generate template="env.sh.vm" destfile="bin/env.sh" charset="utf-8" />
+		<!-- <generate template="env.sh.vm" destfile="bin/env.sh" charset="utf-8" /> -->
+		<generate template="log4j.xml.vm" destfile="conf/log4j.xml" charset="UTF-8" />
+		<!-- <generate template="log4j.properties.vm" destfile="conf/log4j.properties" 
+			charset="UTF-8" /> -->
+		<generate template="rate.level.keyword.properties.vm" destfile="conf/rate.level.keyword.properties" charset="utf-8" />
+	</script>
+</config>

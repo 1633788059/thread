@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+				http://www.springframework.org/schema/context 
+				http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+				http://www.springframework.org/schema/aop  
+               http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+               http://www.springframework.org/schema/util 
+               http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+	<context:component-scan base-package="com.wangjubao.app"
+		use-default-filters="true">
+		<context:include-filter type="regex"
+			expression=".others..*" />
+	</context:component-scan>
+	<aop:aspectj-autoproxy />
+	<context:annotation-config />
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+
+	<bean id="settings"
+		class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="locations">
+			<list>
+				<value>classpath:dolphin.history.properties</value>
+				<value>classpath:resources/opentaobao.properties</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="locations">
+			<list>
+				<value>classpath:wangjubao.dubbo.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- <util:properties id="settings" location="classpath:dolphin.history.properties" 
+		/> -->
+
+	<!-- <bean id="core.dal.propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="locations"> <list> <value>classpath:dolphin.history.properties</value> 
+		</list> </property> <property name="ignoreUnresolvablePlaceholders" value="true" 
+		/> </bean> <bean id="standaloneApp" class="com.wangjubao.app.others.main.HistoryDataImportApp" 
+		init-method="init"> <property name="dolphinJobListener" ref="dolphinJobListener" 
+		/> <property name="dolphinSchedulerListener" ref="dolphinSchedulerListener" 
+		/> </bean> <bean id="readHistoryDataService" class="com.wangjubao.app.others.service.impl.ReadHistoryDataServiceImpl"> 
+		<property name="historyDataImportDao" ref="historyDataImportDao" /> <property 
+		name="handelDataSupport" ref="handelDataSupport" /> <property name="defaultPath" 
+		value="${defaultPath}" /> </bean> -->
+	<!-- <bean id="hisTradeCsvImportService" class="com.wangjubao.app.others.service.impl.HisTradeCsvImportServiceImpl"> 
+		<property name="taobaoHistoryTradeCsvImportService" ref="taobaoHistoryTradeCsvImportService"></property> 
+		<property name="commonService" ref="commonService"></property> <property 
+		name="otherJobService" ref="otherJobService"></property> </bean> <bean id="historyTradeImportService" 
+		class="com.wangjubao.app.others.service.impl.HistoryTradeImportService"> 
+		<property name="commonService" ref="commonService"></property> <property 
+		name="facadeService" ref="facadeService" /> <property name="taobaoSynService" 
+		ref="taobaoSynService" /> <property name="groupRuleService" ref="groupRuleService" 
+		/> <property name="preCalculateEngineService" ref="preCalculateEngineService" 
+		/> </bean> <bean id="taobaoHistoryTradeCsvImportService" class="com.wangjubao.app.others.service.impl.TaobaoHistoryTradeCsvImportServiceImpl"> 
+		<property name="taobaoService" ref="taobaoService"></property> <property 
+		name="areaDao" ref="areaDao"></property> <property name="buyerService" ref="buyerService"></property> 
+		<property name="commonService" ref="commonService"></property> <property 
+		name="historyTradeImportService" ref="historyTradeImportService"></property> 
+		</bean> -->
+
+	<!-- <bean id="tbTradeCheckServiceImpl" class="com.wangjubao.app.others.service.impl.TbTradeCheckServiceImpl"> 
+		<property name="commonService" ref="commonDaoImpl"></property> <property 
+		name="tradeCheckLogicService" ref="tradeCheckLogicServiceImpl"></property> 
+		<property name="clientService" ref="clientServiceImpl"></property> <property 
+		name="firstTradeCalculateRabbitTemplate" ref="firstTradeCalculateRabbitTemplate"></property> 
+		</bean> -->
+</beans>  

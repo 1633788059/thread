@@ -1,0 +1,16 @@
+otherMain(异常物流等)：com.wangjubao.app.others.report.main.OtherMain
+
+                卖家设置物流的异常规则，大概是指定物流公司在多长时间内到达指定城市
+
+                如：圆通物流 杭州发货 2天到达上海。如果超过二天未到上海则判定为异常物流订单。
+
+                规则表： t_seller_abnormal_trade_rule
+
+                异常订单表： t_abnormal_trade
+                
+                
+                
+消息机制：
+	订单状态
+	目前通过物流接口来调用的，可优化为物流消息主动通知
+
